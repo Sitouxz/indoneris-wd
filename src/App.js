@@ -1,20 +1,14 @@
-import "./assets/css/main.min.css";
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import Features from "./components/Features";
-import Bottom from "./components/Bottom";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 export default function App() {
     return (
-        <div className="bg-primary">
-            <Navbar />
-            <Header />
-            <Features />
-            <Bottom />
-            <Contact />
-            <Footer />
-        </div>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+        </Routes>
     );
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import image1 from "../assets/images/image2.svg";
 import image2 from "../assets/images/image3.svg";
 
@@ -30,7 +31,9 @@ export default function Feature(props) {
                     laudantium. Iure atque aperiam inventore doloribus eveniet
                     vel ratione numquam!
                 </p>
-                <button className="btn3d btn-yellow">Get Started</button>
+                <Link to="/register">
+                    <button className="btn3d btn-yellow">Get Started</button>
+                </Link>
             </div>
         </div>
     );

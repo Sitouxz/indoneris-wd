@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Cta() {
     return (
         <div className="container text-center my-5 py-5">
@@ -8,7 +10,9 @@ export default function Cta() {
                 </h1>
             </div>
             <div>
-                <button className="btn3d">Get Started</button>
+                <Link to="/register">
+                    <button className="btn3d">Get Started</button>
+                </Link>
             </div>
         </div>
     );

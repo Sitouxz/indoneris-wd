@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import image1 from "../assets/images/image1.svg";
 
 export default function Header() {
@@ -15,7 +16,11 @@ export default function Header() {
                     <h1 className="fw-bold text-light fs-7">
                         Lorem ipsum dolor sit amet
                     </h1>
-                    <button className="btn3d text-primary">Get Started</button>
+                    <Link to={"/register"}>
+                        <button className="btn3d text-primary">
+                            Get Started
+                        </button>
+                    </Link>
                 </div>
 
                 <div>
