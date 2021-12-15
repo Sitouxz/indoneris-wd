@@ -1,0 +1,106 @@
+@import "../../../node_modules/bootstrap/scss/_functions";
+@import "../../../node_modules/bootstrap/scss/_variables";
+
+* {
+    font-family: "Poppins", sans-serif !important;
+}
+
+$custom-theme-colors: (
+    "blue-100": #0085ff,
+    "blue-75": #339dff,
+    "blue-50": #80baff,
+    "blue-25": #a8d0ff,
+    "yellow-100": #eed75c,
+    "yellow-75": #ffe766,
+    "yellow-50": #ffe999,
+    "yellow-25": #fffde6,
+    "red-100": #ef5d5d,
+    "red-75": #f17878,
+    "red-50": #f6a5a5,
+);
+
+.bg-second-blue {
+    background-color: #339dff;
+}
+
+.bg-light-blue {
+    background-color: #80baff;
+}
+
+$custom-font-sizes: (
+    7: $font-size-base * 3.5,
+);
+
+$font-sizes: map-merge($custom-font-sizes, $font-sizes);
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+.btn-yellow {
+    background: #ffe766 !important;
+    color: white !important;
+
+    &::before {
+        background: #eed75c !important;
+    }
+
+    &:active {
+        background: #ffe766 !important;
+    }
+}
+
+.btn3d {
+    background: white;
+    border-radius: 10px;
+    border: 0;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    padding: 10px 20px;
+    position: relative;
+    text-transform: uppercase;
+    transform-style: preserve-3d;
+    transition: all 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &::before {
+        background: gainsboro;
+        border-radius: inherit;
+        // box-shadow: 0 0 0 2px $color-border, 0 0.6em 0 0 rgba($color, 0.6);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: translate3d(0, 0.5em, -1em);
+        transition: all 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        width: 100%;
+    }
+
+    &:hover {
+        transform: translate(0, 0.25em);
+
+        &::before {
+            transform: translate3d(0, 0.25em, -1em);
+        }
+    }
+
+    &:active {
+        background: white;
+        transform: translate(0, 0.5em);
+
+        &::before {
+            transform: translate3d(0, 0, -1em);
+        }
+    }
+}
+
+.img-bg {
+    position: absolute;
+    right: 0;
+}
+
+.scrolled {
+    background: white;
+    width: 100%;
+}
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
