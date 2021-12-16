@@ -27,7 +27,7 @@ export default function RegisterForm() {
                             Last Name
                         </label>
                         <input
-                            type="email"
+                            type="text"
                             className="form-control"
                             id="lastName"
                             placeholder="Doe"
