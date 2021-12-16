@@ -8,16 +8,16 @@ export default function Contact() {
             </div>
             <div className="bg-second-blue py-5">
                 <div className="container py-5">
-                    <div className="row bg-light p-5 rounded mx-5">
+                    <div className="row bg-light p-3 rounded mx-5">
                         <div className="col-12 col-lg-8">
                             <p className="text-primary">CONTACT US</p>
-                            <h1 className="fw-bold">
+                            <h2 className="fw-bold">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adispiscing...
-                            </h1>
-                            <h1 className="fw-bold text-secondary">
+                            </h2>
+                            <h4 className="fw-bold text-secondary">
                                 info@email.com
-                            </h1>
+                            </h4>
                         </div>
                         <div className="col-12 col-lg-4">
                             <p className="fw-bold">Lorem</p>
