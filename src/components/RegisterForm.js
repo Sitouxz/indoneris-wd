@@ -82,11 +82,15 @@ export default function RegisterForm() {
                         Password cannot be empty
                     </div>
                 </div>
-                <button type="submit" className="btn3d btn-blue w-100 mb-3">
-                    Submit
-                </button>
+                <Link to="/classes">
+                    <button type="submit" className="btn3d btn-blue w-100 mb-3">
+                        Submit
+                    </button>
+                </Link>
                 <label className="text-muted">Already have an account?</label>
-                <Link to="/login" className="text-primary text-decoration-none ms-1">
+                <Link
+                    to="/login"
+                    className="text-primary text-decoration-none ms-1">
                     Sign In
                 </Link>
             </form>

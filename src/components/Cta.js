@@ -5,8 +5,8 @@ export default function Cta() {
         <div className="container text-center my-5 py-5">
             <div>
                 <h1 className="fs-3 fw-bold">
-                    Lorem ipsum dolor sit <br />
-                    amet consectetur adispiscing elit.
+                    Ready to dive in? <br />
+                    Start your class now
                 </h1>
             </div>
             <div>

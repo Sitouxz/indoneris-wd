@@ -37,9 +37,11 @@ export default function LoginForm() {
                         Password cannot be empty
                     </div>
                 </div>
-                <button type="submit" className="btn3d btn-blue w-100 mb-3">
-                    Submit
-                </button>
+                <Link to="/classes">
+                    <button type="submit" className="btn3d btn-blue w-100 mb-3">
+                        Submit
+                    </button>
+                </Link>
                 <label className="text-muted">Don't have an account?</label>
                 <Link
                     className="text-primary text-decoration-none ms-1"

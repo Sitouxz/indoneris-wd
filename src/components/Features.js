@@ -23,8 +23,18 @@ export default function Features() {
                         align-items-center
                         my-5
                         py-5">
-                    <Feature feature="feature1" image="image1" />
-                    <Feature feature="feature2" image="image2" />
+                    <Feature
+                        feature="feature1"
+                        image="image1"
+                        title="Time efficiency"
+                        desc="Quickly access the material and tasks given by the teacher"
+                    />
+                    <Feature
+                        feature="feature2"
+                        image="image2"
+                        title="Learn from anywhere"
+                        desc="Distance can not prevent us from studying, we can still learn anywhere easier and more fun"
+                    />
                 </div>
             </div>
         </section>
