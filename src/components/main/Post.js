@@ -1,7 +1,7 @@
 export default function Post() {
     return (
         <div
-            class="
+            className="
                 bg-light
                 border border-2 border-secondary
                 d-flex
@@ -11,11 +11,11 @@ export default function Post() {
                 rounded-10
                 mb-3
             ">
-            <p class="my-auto">
-                <span class="text-muted me-3">13 June 2022</span>
+            <p className="my-auto">
+                <span className="text-muted me-3">13 June 2022</span>
                 Exercise #3
             </p>
-            <button class="btn btn-blue px-5">Done</button>
+            <button className="btn btn-blue px-5">Done</button>
         </div>
     );
 }

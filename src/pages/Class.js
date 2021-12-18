@@ -8,35 +8,37 @@ import Post from "../components/main/Post";
 
 export default function Class() {
     return (
-        <div class="d-flex flex-column h-100">
+        <div className="d-flex flex-column h-100">
             <Header />
-            <div class="d-none d-sm-block">
-                <img src={bg7} class="bg-right me-5 behind" alt="" />
-                <img src={bg8} class="bg-left ms-5 behind" alt="" />
+            <div className="d-none d-sm-block">
+                <img src={bg7} className="bg-right me-5 behind" alt="" />
+                <img src={bg8} className="bg-left ms-5 behind" alt="" />
             </div>
-            <section class="container">
-                <div class="card mb-3 rounded-3">
-                    <div class="row g-0 bg-primary rounded text-light">
-                        <div class="col-md-2">
-                            <div class="img-container">
+            <section className="container">
+                <div className="card mb-3 rounded-3">
+                    <div className="row g-0 bg-primary rounded text-light">
+                        <div className="col-md-2">
+                            <div className="img-container">
                                 <img
                                     src={dummyImg}
-                                    class="custom-img rounded-start"
+                                    className="custom-img rounded-start"
                                     alt="..."
                                 />
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="card-body">
-                                <p class="text-50">
+                        <div className="col-6">
+                            <div className="card-body">
+                                <p className="text-50">
                                     #1 <span>16 June 2022</span>
                                 </p>
-                                <h5 class="card-title fw-bold m-0">
+                                <h5 className="card-title fw-bold m-0">
                                     Mathematics
                                 </h5>
-                                <p class="text-50 m-0">Ms. Liora Smith</p>
-                                <p class="text-50 m-0">Count more, fun more.</p>
-                                <p class="card-text">
+                                <p className="text-50 m-0">Ms. Liora Smith</p>
+                                <p className="text-50 m-0">
+                                    Count more, fun more.
+                                </p>
+                                <p className="card-text">
                                     This is a wider card with supporting text
                                     below as a natural lead-in to additional
                                     content. This content is a little bit
@@ -44,16 +46,16 @@ export default function Class() {
                                 </p>
                             </div>
                         </div>
-                        <div class="col-3 flex-grow-1 px-2 meeting">
+                        <div className="col-3 flex-grow-1 px-2 meeting">
                             <div
-                                class="
+                                className="
                                 d-flex
                                 justify-content-between
                                 align-items-center
                             ">
                                 <h1>Meetings</h1>
                                 <a href="...">
-                                    <i class="bi bi-plus-circle text-light fs-3"></i>
+                                    <i className="bi bi-plus-circle text-light fs-3"></i>
                                 </a>
                             </div>
                             <Meeting order="1" />
@@ -62,11 +64,11 @@ export default function Class() {
                     </div>
                 </div>
             </section>
-            <section class="container">
-                <div class="row">
-                    <div class="col-2 d-none d-lg-block">
+            <section className="container">
+                <div className="row">
+                    <div className="col-2 d-none d-lg-block">
                         <div
-                            class="
+                            className="
                             bg-primary
                             mb-3
                             d-flex
@@ -77,11 +79,11 @@ export default function Class() {
                             text-light
                             py-3
                         ">
-                            <i class="bi bi-journal-bookmark-fill fs-7"></i>
+                            <i className="bi bi-journal-bookmark-fill fs-7"></i>
                             <h4>Assignment</h4>
                         </div>
                         <div
-                            class="
+                            className="
                             bg-danger
                             mb-3
                             d-flex
@@ -96,7 +98,7 @@ export default function Class() {
                             <h1>65%</h1>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-10">
+                    <div className="col-12 col-lg-10">
                         <Post />
                         <Post />
                         <Post />
