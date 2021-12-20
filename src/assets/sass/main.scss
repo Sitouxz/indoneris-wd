@@ -164,29 +164,12 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 
 .id {
     position: absolute;
-    top: 110px;
+    top: 8px !important;
+    left: 8px !important;
 }
 
-.float-body {
-    margin-top: 100px !important;
-    padding-top: 75px !important;
-    border-radius: 15px !important;
-}
-
-.float-container {
-    width: 150px;
-    height: 175px;
-    overflow: hidden;
-    border-radius: 25px;
-    position: absolute;
-    top: 0;
-}
-.float-container img {
-    height: 100%;
-    min-width: 100%;
-    left: 50%;
-    position: relative;
-    transform: translateX(-50%);
+.img-mask {
+    height: 200px;
     object-fit: cover;
 }
 
@@ -223,32 +206,45 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
     position: fixed;
 }
 
-.meeting {
-    overflow-y: auto;
-    max-height: 250px;
-    scrollbar-width: none !important;
-}
-
-.meeting::-webkit-scrollbar {
-    display: none !important;
-}
-
-@media screen and (max-width: 756px) {
+@media screen and (min-width: 768px) {
     .meeting {
-        max-height: 300px;
+        overflow-y: auto;
+        max-height: 250px;
+        scrollbar-width: none !important;
+    }
+    .meeting::-webkit-scrollbar {
+        display: none !important;
     }
 }
 
 .rounded-10 {
-    border-radius: 10px;
+    border-radius: 10px !important;
 }
 
 .rounded-15 {
-    border-radius: 15px;
+    border-radius: 15px !important;
 }
 
 .rounded-25 {
-    border-radius: 25px;
+    border-radius: 25px !important;
+}
+
+.rounded-15-bottom {
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+.rounded-15-top {
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+}
+
+.rounded-15-end {
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+.rounded-15-start {
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
 }
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";

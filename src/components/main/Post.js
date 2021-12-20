@@ -2,7 +2,7 @@ export default function Post() {
     return (
         <div
             className="
-                bg-light
+                bg-white
                 border border-2 border-secondary
                 d-flex
                 justify-content-between

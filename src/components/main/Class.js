@@ -15,11 +15,13 @@ export default function Class() {
                     text-center
                 "
                 style={{ width: "18rem" }}>
-                <div className="float-container">
-                    <img src={dummyImg} className="float-img" alt="..." />
-                </div>
-                <div className="card-body bg-light-blue float-body">
-                    <p className="text-secondary id">#1</p>
+                <img
+                    src={dummyImg}
+                    className="card-img-top img-mask rounded-15-top"
+                    alt="..."
+                />
+                <div className="card-body bg-light-blue rounded-15-bottom">
+                    <p className="text-light id">#1</p>
                     <h5 className="card-title fw-bold">English General</h5>
                     <p className="m-0 mb-2">Teacher: Mr. Jhon Doe</p>
                     <p>

@@ -15,18 +15,18 @@ export default function Class() {
                 <img src={bg8} className="bg-left ms-5 behind" alt="" />
             </div>
             <section className="container">
-                <div className="card mb-3 rounded-3">
-                    <div className="row g-0 bg-primary rounded text-light">
+                <div className="card mb-3 rounded-15">
+                    <div className="row g-0 bg-primary rounded-15 text-light">
                         <div className="col-md-2">
                             <div className="img-container">
                                 <img
                                     src={dummyImg}
-                                    className="custom-img rounded-start"
+                                    className="custom-img rounded-15-start"
                                     alt="..."
                                 />
                             </div>
                         </div>
-                        <div className="col-6">
+                        <div className="col-12 col-md-6">
                             <div className="card-body">
                                 <p className="text-50">
                                     #1 <span>16 June 2022</span>
@@ -46,7 +46,7 @@ export default function Class() {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-3 flex-grow-1 px-2 meeting">
+                        <div className="col-12 col-md-3 flex-grow-1 px-2 meeting">
                             <div
                                 className="
                                 d-flex
