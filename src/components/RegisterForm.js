@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import React, {Component} from "react";
+import axios from "axios";
+import { response } from "express";
 
 class RegisterForm extends Component {
     constructor(){
@@ -44,11 +46,33 @@ class RegisterForm extends Component {
        })
     }
 
+    onSubmit(event){
+        event.preventDefault()
+
+        const registered = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            phone: this.state.phone,
+            password: this.state.password
+        }
+
+        axios.post('http://localhost:4000/app/signup',registered)
+            .then(response => console.log(response.data))
+
+        this.setState({
+            firstName:'',
+            lastName:'',
+            email:'',
+            phone:'',
+            password:''
+        })
+    }
     render(){
         return (
         <div className="text-primary">
             <h1 className="mb-5 fs-3">Sign Up</h1>
-            <form action="#" className="needs-validation" noValidate>
+            <form action="#" className="needs-validation" onSubmit={this.onSubmit} noValidate>
                 <div className="row">
                     <div className="mb-3 col-6">
                         <label htmlFor="firstName" className="form-label">
