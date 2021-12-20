@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 
 export default function LoginForm() {
+     
     return (
         <div className="text-primary">
+            
             <h1 className="mb-5 fs-3">Sign In</h1>
-            <form action="/" className="needs-validation" noValidate>
-                <div className="mb-3">
+            <form id="login-form" className="needs-validation" noValidate>
+                {/* //email */}
+                <div className="mb-3">  
                     <label htmlFor="email" className="form-label">
                         Email
                     </label>
@@ -21,7 +24,8 @@ export default function LoginForm() {
                         Email cannot be empty
                     </div>
                 </div>
-                <div className="mb-5">
+                {/* password */}
+                <div className="mb-5">  
                     <label htmlFor="password" className="form-label">
                         Password
                     </label>
@@ -46,6 +50,7 @@ export default function LoginForm() {
                     to="/register">
                     Sign Up
                 </Link>
+                
             </form>
         </div>
     );
