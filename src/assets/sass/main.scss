@@ -64,6 +64,19 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
     }
 }
 
+.btn-red {
+    background: #f17878 !important;
+    color: white !important;
+
+    &::before {
+        background: #ef5d5d !important;
+    }
+
+    &:active {
+        background: #f17878 !important;
+    }
+}
+
 .btn3d {
     background: white;
     border-radius: 10px;
@@ -118,8 +131,135 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
     transform: translateX(1px);
 }
 
+.behind {
+    z-index: -1;
+}
+
 .front {
     z-index: 1;
+}
+
+.float-body {
+    margin-top: 100px;
+    padding-top: 75px;
+    border-radius: 15px;
+}
+
+.float-container {
+    width: 150px;
+    height: 175px;
+    overflow: hidden;
+    border-radius: 25px;
+    position: absolute;
+    top: 0;
+}
+.float-container img {
+    height: 100%;
+    min-width: 100%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    object-fit: cover;
+}
+
+.id {
+    position: absolute;
+    top: 8px !important;
+    left: 8px !important;
+}
+
+.img-mask {
+    object-fit: cover;
+}
+
+.img-container {
+    height: 250px;
+    overflow: hidden;
+}
+.img-container img {
+    height: 100%;
+    min-width: 100%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    object-fit: cover;
+}
+
+.text-50 {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.id {
+    position: absolute;
+    top: 110px;
+}
+
+.bg-left {
+    top: 25%;
+    left: 0;
+    position: fixed;
+}
+.bg-right {
+    top: 75%;
+    right: 0;
+    position: fixed;
+}
+
+@media screen and (min-width: 768px) {
+    .meeting {
+        overflow-y: auto;
+        max-height: 250px;
+        scrollbar-width: none !important;
+    }
+    .meeting::-webkit-scrollbar {
+        display: none !important;
+    }
+}
+
+.rounded-10 {
+    border-radius: 10px !important;
+}
+
+.rounded-15 {
+    border-radius: 15px !important;
+}
+
+.rounded-25 {
+    border-radius: 25px !important;
+}
+
+.rounded-15-bottom {
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+.rounded-15-top {
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+}
+
+.rounded-15-end {
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+.rounded-15-start {
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+}
+
+.change-profile {
+    position: absolute;
+    bottom: 0;
+    left: 256px;
+}
+
+.change-profile i:hover {
+    transition: 0.3s;
+    color: gray !important;
+}
+
+.profile-bg {
+    top: 100px;
+    right: 10px;
 }
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";

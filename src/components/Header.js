@@ -14,7 +14,8 @@ export default function Header() {
                 ">
                 <div className="text-center text-lg-start">
                     <h1 className="fw-bold text-light fs-7">
-                        Lorem ipsum dolor sit amet
+                        Learn and <br className="d-none d-lg-block" /> fun
+                        together.
                     </h1>
                     <Link to={"/register"}>
                         <button className="btn3d text-primary">

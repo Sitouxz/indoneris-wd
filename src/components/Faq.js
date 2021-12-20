@@ -4,12 +4,8 @@ export default function Faq() {
     return (
         <div className="container py-5">
             <div className="text-center py-5">
-                <h1 className="text-white fw-bold">
-                    Lorem ipsum dolor sit amet
-                </h1>
-                <p className="fs-5">
-                    lorem ipsum dolor sit amet, consectetur adispiscing
-                </p>
+                <h1 className="text-white fw-bold">Why...</h1>
+                <p className="fs-5">Learn and fun together</p>
             </div>
             <img
                 src="./images/image4.svg"
@@ -18,9 +14,18 @@ export default function Faq() {
                 alt=""
             />
             <div className="row justify-content-center">
-                <FaqItem />
-                <FaqItem />
-                <FaqItem />
+                <FaqItem
+                    title="Interesting Feature"
+                    desc="Steudents can more easily control the tasks given by the teacher and scores received, and can enhanced teacher and student communication and cooperation."
+                />
+                <FaqItem
+                    title="Student Profile"
+                    desc="Parents can easily control the development of their child's learning from student profile."
+                />
+                <FaqItem
+                    title="Children Friendly"
+                    desc="An attractive display, easy to use and leave children not bored to learn."
+                />
             </div>
         </div>
     );

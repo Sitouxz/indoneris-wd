@@ -7,9 +7,9 @@ const twoOne = " order-2 order-lg-1";
 
 export default function Feature(props) {
     return (
-        <div className="row align-items-center py-5 my-5">
+        <div className="row align-items-center py-5 my-5 w-100">
             <div
-                className={`col-12 col-md text-center ${
+                className={`col-12 col-md-6 text-center ${
                     props.feature === "feature2" ? oneTwo : twoOne
                 } ${
                     props.feature === "feature2"
@@ -19,18 +19,11 @@ export default function Feature(props) {
                 <img src={props.image === "image2" ? image2 : image1} alt="" />
             </div>
             <div
-                className={`col text-center text-lg-start ${
+                className={`col-12 col-md-6 text-center text-lg-start ${
                     props.feature === "feature2" ? twoOne : oneTwo
                 }`}>
-                <h1 className="fw-bold">
-                    Lorem ipsum dolor sit amet, consectetur
-                </h1>
-                <p className="fs-5">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Commodi quidem minus, laboriosam enim maiores asperiores
-                    laudantium. Iure atque aperiam inventore doloribus eveniet
-                    vel ratione numquam!
-                </p>
+                <h1 className="fw-bold">{props.title}</h1>
+                <p className="fs-5">{props.desc}</p>
                 <Link to="/register">
                     <button className="btn3d btn-yellow">Get Started</button>
                 </Link>
