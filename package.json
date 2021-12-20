@@ -12,12 +12,14 @@
     "bootstrap-datepicker": "^1.9.0",
     "bootstrap-icons": "^1.7.2",
     "cache-base": "^4.0.2",
+    "core-js-compat": "^3.20.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "fastq": "^1.13.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
+    "jsesc": "^3.0.2",
     "mongodb": "^4.2.2",
     "mongoose": "^6.1.2",
     "negotiator": "^0.6.2",
@@ -27,9 +29,15 @@
     "react-router-dom": "^6.1.1",
     "react-script": "^2.0.5",
     "react-scripts": "^4.0.3",
+    "regenerator-transform": "^0.14.5",
+    "regexpu-core": "^4.8.0",
+    "rollup-plugin-babel": "^4.4.0",
     "run-parallel": "^1.2.0",
+    "to-fast-properties": "^4.0.0",
     "web-vitals": "^1.1.2",
-    "webpack-dev-server": "^3.11.1"
+    "webpack-dev-server": "^3.11.1",
+    "workbox-build": "^6.4.2",
+    "workbox-webpack-plugin": "^6.4.2"
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
@@ -54,5 +62,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1"
   }
 }
