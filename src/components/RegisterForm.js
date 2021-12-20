@@ -160,11 +160,11 @@ class RegisterForm extends Component {
                         Password cannot be empty
                     </div>
                 </div>
-                <Link to="/classes">
+                {/* <Link to="/classes"> */}
                     <button type="submit" className="btn3d btn-blue w-100 mb-3" value="Submit">
                         Submit
                     </button>
-                </Link>
+                {/* </Link> */}
                 <label className="text-muted">Already have an account?</label>
                 <Link
                     to="/login"
