@@ -1,7 +1,51 @@
 import { Link } from "react-router-dom";
+import React, {Component} from "react";
 
-export default function RegisterForm() {
-    return (
+class RegisterForm extends Component {
+    constructor(){
+        super()
+        this.state = {
+            firstName:'',
+            lastName:'',
+            email:'',
+            phone:'',
+            password:''
+        }
+        this.changeFirstName = this.changeFirstName.bind(this)
+        this.changeLastName = this.changeLastName.bind(this)
+        this.changeEmail = this.changeEmail.bind(this)
+        this.changePhone = this.changePhone.bind(this)
+        this.changePassword = this.changePassword.bind(this)
+    }
+
+    changeFirstName(event){
+       this.setState({
+            firstName:event.target.value
+       })
+    }
+    changeLastName(event){
+       this.setState({
+            lastName:event.target.value
+       })
+    }
+    changeEmail(event){
+       this.setState({
+            email:event.target.value
+       })
+    }
+    changePhone(event){
+       this.setState({
+            phone:event.target.value
+       })
+    }
+    changePassword(event){
+       this.setState({
+            password:event.target.value
+       })
+    }
+
+    render(){
+        return (
         <div className="text-primary">
             <h1 className="mb-5 fs-3">Sign Up</h1>
             <form action="#" className="needs-validation" noValidate>
@@ -15,6 +59,8 @@ export default function RegisterForm() {
                             className="form-control"
                             id="firstName"
                             placeholder="John"
+                            onChange={this.changeFirstName}
+                            value={this.state.firstName}
                             required
                         />
                         <div className="valid-feedback">Looks good!</div>
@@ -31,6 +77,8 @@ export default function RegisterForm() {
                             className="form-control"
                             id="lastName"
                             placeholder="Doe"
+                            onChange={this.changeLastName}
+                            value={this.state.lastName}
                             required
                         />
                         <div className="valid-feedback">Looks good!</div>
@@ -48,6 +96,8 @@ export default function RegisterForm() {
                         className="form-control"
                         id="email"
                         placeholder="name@example.com"
+                        onChange={this.changeEmail}
+                        value={this.state.email}
                         required
                     />
                     <div className="valid-feedback">Looks good!</div>
@@ -64,6 +114,8 @@ export default function RegisterForm() {
                         className="form-control"
                         id="phoneNumber"
                         placeholder="081234567890"
+                        onChange={this.changePhone}
+                        value={this.state.phone}
                     />
                 </div>
                 <div className="mb-5">
@@ -75,6 +127,8 @@ export default function RegisterForm() {
                         className="form-control"
                         id="password"
                         placeholder="*********"
+                        onChange={this.changePassword}
+                        value={this.state.password}
                         required
                     />
                     <div className="valid-feedback">Looks good!</div>
@@ -83,7 +137,7 @@ export default function RegisterForm() {
                     </div>
                 </div>
                 <Link to="/classes">
-                    <button type="submit" className="btn3d btn-blue w-100 mb-3">
+                    <button type="submit" className="btn3d btn-blue w-100 mb-3" value="Submit">
                         Submit
                     </button>
                 </Link>
@@ -96,4 +150,7 @@ export default function RegisterForm() {
             </form>
         </div>
     );
+    }
 }
+
+export default RegisterForm;
