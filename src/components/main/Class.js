@@ -17,6 +17,7 @@ export default function Class() {
                 style={{ width: "18rem" }}>
                 <img
                     src={dummyImg}
+                    height="200px"
                     className="card-img-top img-mask rounded-15-top"
                     alt="..."
                 />

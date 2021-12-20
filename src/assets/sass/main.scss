@@ -169,7 +169,6 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 }
 
 .img-mask {
-    height: 200px;
     object-fit: cover;
 }
 
@@ -245,6 +244,22 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 .rounded-15-start {
     border-top-left-radius: 15px !important;
     border-bottom-left-radius: 15px !important;
+}
+
+.change-profile {
+    position: absolute;
+    bottom: 0;
+    left: 256px;
+}
+
+.change-profile i:hover {
+    transition: 0.3s;
+    color: gray !important;
+}
+
+.profile-bg {
+    top: 100px;
+    right: 10px;
 }
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
