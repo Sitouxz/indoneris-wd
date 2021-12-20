@@ -17,6 +17,7 @@ class RegisterForm extends Component {
         this.changeEmail = this.changeEmail.bind(this)
         this.changePhone = this.changePhone.bind(this)
         this.changePassword = this.changePassword.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
     }
 
     changeFirstName(event){
@@ -71,7 +72,7 @@ class RegisterForm extends Component {
         return (
         <div className="text-primary">
             <h1 className="mb-5 fs-3">Sign Up</h1>
-            <form action="#" className="needs-validation" onSubmit={this.onSubmit} noValidate>
+            <form action="#" className="needs-validation" onSubmit={this.onSubmit}>
                 <div className="row">
                     <div className="mb-3 col-6">
                         <label htmlFor="firstName" className="form-label">
