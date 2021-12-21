@@ -47,6 +47,7 @@ class RegisterForm extends Component {
     }
 
     onSubmit(event){
+
         event.preventDefault()
 
         const registered = {
@@ -59,7 +60,7 @@ class RegisterForm extends Component {
 
         axios.post('http://localhost:4000/app/signup',registered)
             .then(response => console.log(response.data))
-
+        console.log('newUser');
         this.setState({
             firstName:'',
             lastName:'',
@@ -67,12 +68,13 @@ class RegisterForm extends Component {
             phone:'',
             password:''
         })
+        
     }
     render(){
         return (
         <div className="text-primary">
             <h1 className="mb-5 fs-3">Sign Up</h1>
-            <form action="#" className="needs-validation" onSubmit={this.onSubmit}>
+            <form className="needs-validation" onSubmit={this.onSubmit}>
                 <div className="row">
                     <div className="mb-3 col-6">
                         <label htmlFor="firstName" className="form-label">

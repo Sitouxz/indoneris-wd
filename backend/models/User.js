@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const signUpTeplate = new mongoose.Schema({
+const user = new mongoose.Schema({
     firstName:{
         type:String,
         required:true
@@ -11,7 +11,8 @@ const signUpTeplate = new mongoose.Schema({
     },
     email:{
         type:String,
-        required:true
+        required:true,
+        //unique: true
     },
     phone:{
         type:String,
@@ -27,4 +28,4 @@ const signUpTeplate = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Users', signUpTeplate)
+module.exports = mongoose.model('Users', user)

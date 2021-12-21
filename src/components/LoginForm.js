@@ -1,12 +1,52 @@
 import { Link } from "react-router-dom";
+import React, {Component} from "react";
+import axios from "axios";
 
-export default function LoginForm() {
-     
-    return (
-        <div className="text-primary">
+class LoginForm extends Component {
+    constructor(){
+        super()
+        this.state = {
+            email:'',
+            password:''
+        }
+        this.changeEmail = this.changeEmail.bind(this)
+        this.changePassword = this.changePassword.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
+    }
+    changeEmail(event){
+       this.setState({
+            email:event.target.value
+       })
+    }
+    changePassword(event){
+       this.setState({
+            password:event.target.value
+       })
+    }
+
+    onSubmit(event){
+        event.preventDefault()
+
+        const login = {
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        axios.post('http://localhost:4000/app/signin',login)
+            .then(response => console.log(response.data))
+        console.log('userEnter');
+        this.setState({
+            email:'',
+            password:''
+        })
+        
+    }
+    render(){
+        return (
+            <div className="text-primary">
             
             <h1 className="mb-5 fs-3">Sign In</h1>
-            <form id="login-form" className="needs-validation" noValidate>
+            <form id="login-form" className="needs-validation" onSubmit={this.onSubmit} noValidate>
                 {/* //email */}
                 <div className="mb-3">  
                     <label htmlFor="email" className="form-label">
@@ -17,6 +57,8 @@ export default function LoginForm() {
                         className="form-control"
                         id="email"
                         placeholder="name@example.com"
+                        onChange={this.changeEmail}
+                        value={this.state.email}
                         required
                     />
                     <div className="valid-feedback">Looks good!</div>
@@ -34,6 +76,8 @@ export default function LoginForm() {
                         className="form-control"
                         id="password"
                         placeholder="*********"
+                        onChange={this.changePassword}
+                        value={this.state.password}
                         required
                     />
                     <div className="valid-feedback">Looks good!</div>
@@ -41,11 +85,11 @@ export default function LoginForm() {
                         Password cannot be empty
                     </div>
                 </div>
-                <Link to="/classes">
+                {/* <Link to="/classes"> */}
                     <button type="submit" className="btn3d btn-blue w-100 mb-3">
                         Submit
                     </button>
-                </Link>
+                {/* </Link> */}
                 <label className="text-muted">Don't have an account?</label>
                 <Link
                     className="text-primary text-decoration-none ms-1"
@@ -56,4 +100,7 @@ export default function LoginForm() {
             </form>
         </div>
     );
+    }
 }
+
+export default LoginForm;
