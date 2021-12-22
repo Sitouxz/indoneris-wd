@@ -1,179 +1,206 @@
 import { Link } from "react-router-dom";
-import React, {Component} from "react";
+import React, { Component } from "react";
 import axios from "axios";
 
 class RegisterForm extends Component {
-    constructor(){
-        super()
+    constructor() {
+        super();
         this.state = {
-            firstName:'',
-            lastName:'',
-            email:'',
-            phone:'',
-            password:''
-        }
-        this.changeFirstName = this.changeFirstName.bind(this)
-        this.changeLastName = this.changeLastName.bind(this)
-        this.changeEmail = this.changeEmail.bind(this)
-        this.changePhone = this.changePhone.bind(this)
-        this.changePassword = this.changePassword.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            password: "",
+        };
+        this.changeFirstName = this.changeFirstName.bind(this);
+        this.changeLastName = this.changeLastName.bind(this);
+        this.changeEmail = this.changeEmail.bind(this);
+        this.changePhone = this.changePhone.bind(this);
+        this.changePassword = this.changePassword.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    changeFirstName(event){
-       this.setState({
-            firstName:event.target.value
-       })
+    changeFirstName(event) {
+        this.setState({
+            firstName: event.target.value,
+        });
     }
-    changeLastName(event){
-       this.setState({
-            lastName:event.target.value
-       })
+    changeLastName(event) {
+        this.setState({
+            lastName: event.target.value,
+        });
     }
-    changeEmail(event){
-       this.setState({
-            email:event.target.value
-       })
+    changeEmail(event) {
+        this.setState({
+            email: event.target.value,
+        });
     }
-    changePhone(event){
-       this.setState({
-            phone:event.target.value
-       })
+    changePhone(event) {
+        this.setState({
+            phone: event.target.value,
+        });
     }
-    changePassword(event){
-       this.setState({
-            password:event.target.value
-       })
+    changePassword(event) {
+        this.setState({
+            password: event.target.value,
+        });
     }
 
-    onSubmit(event){
-        event.preventDefault()
+    onSubmit(event) {
+        event.preventDefault();
 
         const registered = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             email: this.state.email,
             phone: this.state.phone,
-            password: this.state.password
-        }
+            password: this.state.password,
+        };
 
-        axios.post('http://localhost:4000/app/signup',registered)
-            .then(response => console.log(response.data))
+        axios
+            .post("http://localhost:4000/app/signup", registered)
+            .then((response) => console.log(response.data));
 
         this.setState({
-            firstName:'',
-            lastName:'',
-            email:'',
-            phone:'',
-            password:''
-        })
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            password: "",
+        });
     }
-    render(){
+    render() {
         return (
-        <div className="text-primary">
-            <h1 className="mb-5 fs-3">Sign Up</h1>
-            <form action="#" className="needs-validation" onSubmit={this.onSubmit}>
-                <div className="row">
-                    <div className="mb-3 col-6">
-                        <label htmlFor="firstName" className="form-label">
-                            First Name
+            <div className="text-primary">
+                <h1 className="mb-5 fs-3">Sign Up</h1>
+                <form
+                    action="#"
+                    className="needs-validation"
+                    onSubmit={this.onSubmit}>
+                    <div className="row">
+                        <div className="mb-3 col-6">
+                            <label htmlFor="firstName" className="form-label">
+                                First Name
+                            </label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="firstName"
+                                placeholder="John"
+                                onChange={this.changeFirstName}
+                                value={this.state.firstName}
+                                required
+                            />
+                            <div className="valid-feedback">Looks good!</div>
+                            <div className="invalid-feedback">
+                                First name cannot be empty
+                            </div>
+                        </div>
+                        <div className="mb-3 col-6">
+                            <label htmlFor="lastName" className="form-label">
+                                Last Name
+                            </label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="lastName"
+                                placeholder="Doe"
+                                onChange={this.changeLastName}
+                                value={this.state.lastName}
+                                required
+                            />
+                            <div className="valid-feedback">Looks good!</div>
+                            <div className="invalid-feedback">
+                                Last name cannot be empty
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label">
+                            Email
                         </label>
                         <input
-                            type="text"
+                            type="email"
                             className="form-control"
-                            id="firstName"
-                            placeholder="John"
-                            onChange={this.changeFirstName}
-                            value={this.state.firstName}
+                            id="email"
+                            placeholder="name@example.com"
+                            onChange={this.changeEmail}
+                            value={this.state.email}
                             required
                         />
                         <div className="valid-feedback">Looks good!</div>
                         <div className="invalid-feedback">
-                            First name cannot be empty
+                            Email cannot be empty
                         </div>
                     </div>
-                    <div className="mb-3 col-6">
-                        <label htmlFor="lastName" className="form-label">
-                            Last Name
+                    <div className="mb-3">
+                        <label htmlFor="phoneNumber" className="form-label">
+                            Phone Number
                         </label>
                         <input
-                            type="text"
+                            type="tel"
                             className="form-control"
-                            id="lastName"
-                            placeholder="Doe"
-                            onChange={this.changeLastName}
-                            value={this.state.lastName}
+                            id="phoneNumber"
+                            placeholder="081234567890"
+                            onChange={this.changePhone}
+                            value={this.state.phone}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="password" className="form-label">
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="password"
+                            placeholder="*********"
+                            onChange={this.changePassword}
+                            value={this.state.password}
                             required
                         />
                         <div className="valid-feedback">Looks good!</div>
                         <div className="invalid-feedback">
-                            Last name cannot be empty
+                            Password cannot be empty
                         </div>
                     </div>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">
-                        Email
-                    </label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        placeholder="name@example.com"
-                        onChange={this.changeEmail}
-                        value={this.state.email}
-                        required
-                    />
-                    <div className="valid-feedback">Looks good!</div>
-                    <div className="invalid-feedback">
-                        Email cannot be empty
+                    <div className="mb-5">
+                        <label htmlFor="retype-password" className="form-label">
+                            Re-type Password
+                        </label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="retype-password"
+                            placeholder="*********"
+                            // onChange={this.changePassword}
+                            // value={this.state.password}
+                            required
+                        />
+                        <div className="valid-feedback">Looks good!</div>
+                        <div className="invalid-feedback">
+                            Password cannot be empty
+                        </div>
                     </div>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="phoneNumber" className="form-label">
-                        Phone Number
-                    </label>
-                    <input
-                        type="tel"
-                        className="form-control"
-                        id="phoneNumber"
-                        placeholder="081234567890"
-                        onChange={this.changePhone}
-                        value={this.state.phone}
-                    />
-                </div>
-                <div className="mb-5">
-                    <label htmlFor="password" className="form-label">
-                        Password
-                    </label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        placeholder="*********"
-                        onChange={this.changePassword}
-                        value={this.state.password}
-                        required
-                    />
-                    <div className="valid-feedback">Looks good!</div>
-                    <div className="invalid-feedback">
-                        Password cannot be empty
-                    </div>
-                </div>
-                {/* <Link to="/classes"> */}
-                    <button type="submit" className="btn3d btn-blue w-100 mb-3" value="Submit">
+                    {/* <Link to="/classes"> */}
+                    <button
+                        type="submit"
+                        className="btn3d btn-blue w-100 mb-3"
+                        value="Submit">
                         Submit
                     </button>
-                {/* </Link> */}
-                <label className="text-muted">Already have an account?</label>
-                <Link
-                    to="/login"
-                    className="text-primary text-decoration-none ms-1">
-                    Sign In
-                </Link>
-            </form>
-        </div>
-    );
+                    {/* </Link> */}
+                    <label className="text-muted">
+                        Already have an account?
+                    </label>
+                    <Link
+                        to="/login"
+                        className="text-primary text-decoration-none ms-1">
+                        Sign In
+                    </Link>
+                </form>
+            </div>
+        );
     }
 }
 

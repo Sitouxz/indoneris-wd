@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Classes from "./pages/Classes";
 import Class from "./pages/Class";
 import Profile from "./pages/Profile";
+import Assignment from "./pages/Assignment";
 
 export default function App() {
     return (
@@ -15,6 +16,7 @@ export default function App() {
             <Route path="/classes" element={<Classes />} />
             <Route path="/class" element={<Class />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/assignment" element={<Assignment />} />
         </Routes>
     );
 }
