@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const users = require('../models/User')
+const user = require('../models/User')
 const bcrypt = require('bcrypt')
 
 router.post('/signup', async (request, response) =>{
@@ -12,7 +12,7 @@ router.post('/signup', async (request, response) =>{
     let lastName = request.body.lastName
     let email = request.body.email
     let phone = request.body.phone
-    const signedUpUser = new users({
+    const signedUpUser = new user({
         firstName:firstName,
         lastName:lastName,
         email:email,
@@ -34,14 +34,36 @@ router.post('/signin', async (request, response) =>{
     let password = request.body.password
 
 
-    User.findOne({ email }).then(user => {
-        // Check if user exists
+    user.findOne({ email }).then(user => {
+        console.log(user)
         if (!user) {
-          return res.status(404).json({ emailnotfound: "Email not found" });
+            console.log("email not found");
+            //return res.status(404).json({ emailnotfound: "Email not found" });
+        }else{
+            console.log("email found");
         }
-
     
-    const signedUpUser = new users({
+
+        bcrypt.compare(password, user.password).then(isMatch => {
+        if (isMatch) {
+            console.log("password found");
+
+            //DIRECT AKANG KE CLASSES
+
+          /* User matched
+            Create JWT Payload
+          const payload = {
+            id: user.id,
+            name: user.name
+          };*/
+        } else {
+            console.log("password not found");
+            /*return res
+            .status(400)
+            .json({ passwordincorrect: "Password incorrect" });*/
+        }
+      });
+    /*const signedUpUser = new user({
         email:email,
         password:password
     })
@@ -51,7 +73,8 @@ router.post('/signin', async (request, response) =>{
     })
     .catch(error =>{
         response.json(error)
-    })
+    })*/
+})
 })
 
-module.exports = router
+module.exports = router;
