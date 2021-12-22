@@ -60,14 +60,14 @@ class RegisterForm extends Component {
 
         axios.post('http://localhost:4000/app/signup',registered)
             .then(response => console.log(response.data))
-        console.log('newUser');
-        this.setState({
+        console.log(registered);
+        /*this.setState({
             firstName:'',
             lastName:'',
             email:'',
             phone:'',
             password:''
-        })
+        })*/
         
     }
     render(){

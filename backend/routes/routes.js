@@ -4,16 +4,15 @@ const router = express.Router()
 const users = require('../models/User')
 const bcrypt = require('bcrypt')
 
-router.post('/signup', async (request,response) =>{
+router.post('/signup', async (req, res) =>{
 
     const saltPassword = await bcrypt.genSalt(10)
-    const securePassord = await bcrypt.hash(request.body.password, saltPassword)
+    const securePassord = await bcrypt.hash(req.body.password, saltPassword)
 
-    let firstName = request.body.firstName
-    let lastName = request.body.lastName
-    let email = request.body.email
-    let phone = request.body.phone
-
+    let firstName = req.body.firstName
+    let lastName = req.body.lastName
+    let email = req.body.email
+    let phone = req.body.phone
     const signedUpUser = new users({
         firstName:firstName,
         lastName:lastName,
@@ -23,10 +22,10 @@ router.post('/signup', async (request,response) =>{
     })
     signedUpUser.save()
     .then(data =>{
-        response.json(data)
+        res.json(data)
     })
     .catch(error =>{
-        response.json(error)
+        res.json(error)
     })
 })
 
