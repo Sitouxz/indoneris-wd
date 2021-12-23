@@ -47,7 +47,7 @@ router.post('/signin', async (req, res) =>{
         console.log(user);
         if (!user) {
             console.log("email not found");
-            //return res.status(404).json({ emailnotfound: "Email not found" });
+            return res.json({ emailnotfound: "Email not found" });
         } else {
             console.log("email found");
         }
@@ -57,7 +57,7 @@ router.post('/signin', async (req, res) =>{
                 console.log("password found");
 
                 //DIRECT AKANG KE CLASSES
-                return response.json({ passwordCorrect: "Password correct" });
+                return res.json({ passwordCorrect: "Password correct" });
                 /* User matched
             Create JWT Payload
             const payload = {
@@ -66,22 +66,11 @@ router.post('/signin', async (req, res) =>{
             };*/
             } else {
                 console.log("password not found");
-                return response
-                    .status(400)
+                return res
                     .json({ passwordIncorrect: "Password incorrect" });
             }
         });
-        /*const signedUpUser = new user({
-        email:email,
-        password:password
-    })
-    signedUpUser.save()
-    .then(data =>{
-        res.json(data)
-    })
-    .catch(error =>{
-        res.json(error)
-    })*/
+        
     });
 });
 

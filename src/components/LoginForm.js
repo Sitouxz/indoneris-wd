@@ -8,7 +8,8 @@ class LoginForm extends Component {
         this.state = {
             email: "",
             password: "",
-            redirect: false,
+            errors: {},
+            redirect: false
         };
         this.changeEmail = this.changeEmail.bind(this);
         this.changePassword = this.changePassword.bind(this);
@@ -35,24 +36,20 @@ class LoginForm extends Component {
 
         axios
             .post("http://localhost:4000/app/signin", login)
-            .then((response) => {
-                console.log(response.data);
+            .then((res) => {
+                console.log(res.data);
                 this.setState({
-                    redirect: true,
+                    errors:res.data,
+                    redirect: true
                 });
             });
         console.log("userEnter");
-        this.setState({
+        /*this.setState({
             email: "",
             password: "",
-        });
+        });*/
     }
     render() {
-        const { redirect } = this.state;
-
-        if (redirect) {
-            return <Navigate to="/classes" />;
-        }
 
         return (
             <div className="text-primary">
@@ -76,10 +73,7 @@ class LoginForm extends Component {
                             value={this.state.email}
                             required
                         />
-                        <div className="valid-feedback">Looks good!</div>
-                        <div className="invalid-feedback">
-                            Email cannot be empty
-                        </div>
+                        <div className="error" id="password">{this.state.errors.emailnotfound}</div>
                     </div>
                     {/* password */}
                     <div className="mb-5">
@@ -95,10 +89,7 @@ class LoginForm extends Component {
                             value={this.state.password}
                             required
                         />
-                        <div className="valid-feedback">Looks good!</div>
-                        <div className="invalid-feedback">
-                            Password cannot be empty
-                        </div>
+                        <div className="error" id="password">{this.state.errors.passwordCorrect}{this.state.errors.passwordIncorrect}</div>
                     </div>
                     {/* <Link to="/classes"> */}
                     <button type="submit" className="btn3d btn-blue w-100 mb-3">
