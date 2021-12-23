@@ -10,8 +10,8 @@ module.exports = function validateRegisterInput(data) {
   data.password = !isEmpty(data.password) ? data.password : "";
   data.password2 = !isEmpty(data.password2) ? data.password2 : "";
 // Name checks
-  if (Validator.isEmpty(data.firstName)) {
-    errors.firstName = "Name field is required";
+  if (Validator.isEmpty(data.phone)) {
+    errors.firstName = "Phone field is required";
   }
 // Email checks
   if (Validator.isEmpty(data.email)) {
@@ -33,7 +33,6 @@ if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
 if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = "Passwords must match";
   }
-  console.log(errors.password2)
 return {
     errors,
     isValid: isEmpty(errors)

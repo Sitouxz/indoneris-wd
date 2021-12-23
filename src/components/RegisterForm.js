@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import classnames from "classnames";
 
+
 class RegisterForm extends Component {
     constructor(){
         super()
@@ -23,13 +24,7 @@ class RegisterForm extends Component {
         this.changePassword2 = this.changePassword2.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
     }
-    componentDidUpdate(nextProps) {
-        if (nextProps.errors) {
-          this.setState({
-            errors: nextProps.errors
-          });
-        }
-      }
+
 
     changeFirstName(event){
        this.setState({
@@ -72,10 +67,14 @@ class RegisterForm extends Component {
             password: this.state.password,
             password2: this.state.password2
         }
-
         axios.post('http://localhost:4000/app/signup',registered)
-            .then(response => console.log(response.data))
-        console.log(registered);
+            .then(res => {
+                this.setState({
+                    errors:res.data
+               })
+            }
+           );
+           //console.log(this.state.errors)
         /*this.setState({
             firstName:'',
             lastName:'',
@@ -86,13 +85,12 @@ class RegisterForm extends Component {
         
     }
     render(){
-        const { errors } = this.state;
         return (
         <div className="text-primary">
             <h1 className="mb-5 fs-3">Sign Up</h1>
             <form className="needs-validation" onSubmit={this.onSubmit}>
                 <div className="row">
-                    <div className="mb-3 col-6">
+                    <div className="mb-3 col-6"> 
                         <label htmlFor="firstName" className="form-label">
                             First Name
                         </label>
@@ -103,7 +101,6 @@ class RegisterForm extends Component {
                             placeholder="John"
                             onChange={this.changeFirstName}
                             value={this.state.firstName}
-                            error={errors.firstName}
                             required
                         />
                         <div className="valid-feedback">Looks good!</div>
@@ -111,7 +108,7 @@ class RegisterForm extends Component {
                             First name cannot be empty
                         </div>
                     </div>
-                    <div className="mb-3 col-6">
+                    <div className="mb-3 col-6"> 
                         <label htmlFor="lastName" className="form-label">
                             Last Name
                         </label>
@@ -122,7 +119,6 @@ class RegisterForm extends Component {
                             placeholder="Doe"
                             onChange={this.changeLastName}
                             value={this.state.lastName}
-                            error={errors.lastName}
                             required
                         />
                         <div className="valid-feedback">Looks good!</div>
@@ -142,18 +138,11 @@ class RegisterForm extends Component {
                         placeholder="name@example.com"
                         onChange={this.changeEmail}
                         value={this.state.email}
-                        error={errors.email}
                         required
                     />
-                    <div 
-                    className={classnames("valid-feedback", {"invalid-feedback": errors.email})}>{errors.email}
-                    </div>
-                    {/* <div className="valid-feedback">Looks good!</div>
-                    <div className="invalid-feedback">
-                        Email cannot be empty
-                    </div> */}
+                    <div className="error" id="password2">{this.state.errors.email}</div>
                 </div>
-                <div className="mb-3">
+                <div className="mb-3"> 
                     <label htmlFor="phoneNumber" className="form-label">
                         Phone Number
                     </label>
@@ -164,14 +153,10 @@ class RegisterForm extends Component {
                         placeholder="081234567890"
                         onChange={this.changePhone}
                         value={this.state.phone}
-                        error={errors.phone}
                     />
-                    <div className="valid-feedback">Looks good!</div>
-                    <div className="invalid-feedback">
-                        Phone Number cannot be empty
-                    </div>
+                    <div className="error" id="password2">{this.state.errors.phone}</div>
                 </div>
-                <div className="mb-5">
+                <div className="mb-5"> 
                     <label htmlFor="password" className="form-label">
                         Password
                     </label>
@@ -182,12 +167,13 @@ class RegisterForm extends Component {
                         placeholder="*********"
                         onChange={this.changePassword}
                         value={this.state.password}
-                        error={errors.password}
                         required
                     />
-                    <div 
+                    {/*<div 
                     className={classnames("valid-feedback", {"invalid-feedback": errors.password})}>{errors.password}
-                    </div>
+                    </div>*/}
+                    {/**/}
+                    <div className="error" id="password2">{this.state.errors.password}</div>
                     {/* <div className="valid-feedback">Looks good!</div>
                     <div className="invalid-feedback">
                         Password cannot be empty
@@ -202,12 +188,9 @@ class RegisterForm extends Component {
                         placeholder="*********"
                         onChange={this.changePassword2}
                         value={this.state.password2}
-                        error={errors.password2}
                         required
                     />
-                    <div 
-                    className={classnames("asd", {"ssss": errors.password2})}>{errors.password2}
-                    </div>
+                    <div className="error" id="password2">{this.state.errors.password2}</div>
                     {/* <div className="valid-feedback">Looks good!</div>
                     <div className="invalid-feedback">
                         Password cannot be empty
