@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React, {Component} from "react";
 import axios from "axios";
+import classnames from "classnames";
 
 class RegisterForm extends Component {
     constructor(){
@@ -10,15 +11,26 @@ class RegisterForm extends Component {
             lastName:'',
             email:'',
             phone:'',
-            password:''
+            password:'',
+            password2:'',
+            errors: {}
         }
         this.changeFirstName = this.changeFirstName.bind(this)
         this.changeLastName = this.changeLastName.bind(this)
         this.changeEmail = this.changeEmail.bind(this)
         this.changePhone = this.changePhone.bind(this)
         this.changePassword = this.changePassword.bind(this)
+        this.changePassword2 = this.changePassword2.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
     }
+
+    componentDidUpdate(nextProps) {
+        if (nextProps.errors) {
+          this.setState({
+            errors: nextProps.errors
+          });
+        }
+      }
 
     changeFirstName(event){
        this.setState({
@@ -45,17 +57,21 @@ class RegisterForm extends Component {
             password:event.target.value
        })
     }
-
+    changePassword2(event){
+        this.setState({
+             password2:event.target.value
+        })
+     }
     onSubmit(event){
 
         event.preventDefault()
-
         const registered = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             email: this.state.email,
             phone: this.state.phone,
-            password: this.state.password
+            password: this.state.password,
+            password2: this.state.password2
         }
 
         axios.post('http://localhost:4000/app/signup',registered)
@@ -71,6 +87,7 @@ class RegisterForm extends Component {
         
     }
     render(){
+        const { errors } = this.state;
         return (
         <div className="text-primary">
             <h1 className="mb-5 fs-3">Sign Up</h1>
@@ -87,6 +104,7 @@ class RegisterForm extends Component {
                             placeholder="John"
                             onChange={this.changeFirstName}
                             value={this.state.firstName}
+                            error={errors.firstName}
                             required
                         />
                         <div className="valid-feedback">Looks good!</div>
@@ -105,6 +123,7 @@ class RegisterForm extends Component {
                             placeholder="Doe"
                             onChange={this.changeLastName}
                             value={this.state.lastName}
+                            error={errors.lastName}
                             required
                         />
                         <div className="valid-feedback">Looks good!</div>
@@ -124,12 +143,16 @@ class RegisterForm extends Component {
                         placeholder="name@example.com"
                         onChange={this.changeEmail}
                         value={this.state.email}
+                        error={errors.email}
                         required
                     />
-                    <div className="valid-feedback">Looks good!</div>
+                    <div 
+                    className={classnames("valid-feedback", {"invalid-feedback": errors.email})}>{errors.email}
+                    </div>
+                    {/* <div className="valid-feedback">Looks good!</div>
                     <div className="invalid-feedback">
                         Email cannot be empty
-                    </div>
+                    </div> */}
                 </div>
                 <div className="mb-3">
                     <label htmlFor="phoneNumber" className="form-label">
@@ -142,7 +165,12 @@ class RegisterForm extends Component {
                         placeholder="081234567890"
                         onChange={this.changePhone}
                         value={this.state.phone}
+                        error={errors.phone}
                     />
+                    <div className="valid-feedback">Looks good!</div>
+                    <div className="invalid-feedback">
+                        Phone Number cannot be empty
+                    </div>
                 </div>
                 <div className="mb-5">
                     <label htmlFor="password" className="form-label">
@@ -155,12 +183,36 @@ class RegisterForm extends Component {
                         placeholder="*********"
                         onChange={this.changePassword}
                         value={this.state.password}
+                        error={errors.password}
                         required
                     />
-                    <div className="valid-feedback">Looks good!</div>
+                    <div 
+                    className={classnames("valid-feedback", {"invalid-feedback": errors.password})}>{errors.password}
+                    </div>
+                    {/* <div className="valid-feedback">Looks good!</div>
                     <div className="invalid-feedback">
                         Password cannot be empty
+                    </div> */}
+                    <label htmlFor="password2" className="form-label">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="password2"
+                        placeholder="*********"
+                        onChange={this.changePassword2}
+                        value={this.state.password2}
+                        error={errors.password2}
+                        required
+                    />
+                    <div 
+                    className={classnames("asd", {"ssss": errors.password2})}>{errors.password2}
                     </div>
+                    {/* <div className="valid-feedback">Looks good!</div>
+                    <div className="invalid-feedback">
+                        Password cannot be empty
+                    </div> */}
                 </div>
                 {/* <Link to="/classes"> */}
                     <button type="submit" className="btn3d btn-blue w-100 mb-3" value="Submit">

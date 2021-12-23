@@ -2,8 +2,18 @@ const express = require('express')
 const router = express.Router()
 const user = require('../models/User')
 const bcrypt = require('bcrypt')
+const jwt = require("jsonwebtoken");
+
+const validateRegisterInput = require('../Validation/register')
 
 router.post('/signup', async (request, response) =>{
+
+    const { errors, isValid } = validateRegisterInput(request.body);
+    // Check validation
+    if (!isValid) {
+        //console.log(errors)
+        return response.status(400).json(errors);
+    }
 
     const saltPassword = await bcrypt.genSalt(10)
     const securePassord = await bcrypt.hash(request.body.password, saltPassword)
@@ -74,6 +84,7 @@ router.post('/signin', async (request, response) =>{
     .catch(error =>{
         response.json(error)
     })*/
+    console.log(user.lastName)
 })
 })
 

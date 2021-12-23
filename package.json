@@ -15,6 +15,7 @@
     "bootstrap-datepicker": "^1.9.0",
     "bootstrap-icons": "^1.7.2",
     "cache-base": "^4.0.2",
+    "classnames": "^2.3.1",
     "concurrently": "^6.5.1",
     "core-js-compat": "^3.20.0",
     "cors": "^2.8.5",
