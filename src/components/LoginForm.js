@@ -89,7 +89,7 @@ class LoginForm extends Component {
                             value={this.state.password}
                             required
                         />
-                        <div className="error" id="password">{this.state.errors.passwordCorrect}{this.state.errors.passwordIncorrect}</div>
+                        <div className="error" id="password">{this.state.errors.passwordIncorrect}</div>
                     </div>
                     {/* <Link to="/classes"> */}
                     <button type="submit" className="btn3d btn-blue w-100 mb-3">
