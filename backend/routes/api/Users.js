@@ -40,6 +40,7 @@ router.post('/signup', async (req, res) =>{
             .catch(error =>{
                 res.json(error)
             })
+            //[#direct] ke classes
       } else {
           console.log("Email already registered!");
           return res.json({ alreadyRegist: "Email already registered!" });
@@ -73,7 +74,7 @@ router.post('/signin', async (req, res) =>{
             if (isMatch) {
                 console.log("password found");
 
-                //DIRECT AKANG KE CLASSES
+                //DIRECT AKANG KE CLASSES [#direct]
                 return res.json({ passwordCorrect: "Password correct" });
                 /* User matched
             Create JWT Payload
