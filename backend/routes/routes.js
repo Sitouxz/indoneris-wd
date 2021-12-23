@@ -43,37 +43,35 @@ router.post('/signin', async (req, res) =>{
     let email = req.body.email
     let password = req.body.password
 
-
-    user.findOne({ email }).then(user => {
-        console.log(user)
+    user.findOne({ email }).then((user) => {
+        console.log(user);
         if (!user) {
             console.log("email not found");
             //return res.status(404).json({ emailnotfound: "Email not found" });
-        }else{
+        } else {
             console.log("email found");
         }
-    
 
-        bcrypt.compare(password, user.password).then(isMatch => {
-        if (isMatch) {
-            console.log("password found");
+        bcrypt.compare(password, user.password).then((isMatch) => {
+            if (isMatch) {
+                console.log("password found");
 
-            //DIRECT AKANG KE CLASSES
-
-          /* User matched
+                //DIRECT AKANG KE CLASSES
+                return response.json({ passwordCorrect: "Password correct" });
+                /* User matched
             Create JWT Payload
-          const payload = {
+            const payload = {
             id: user.id,
             name: user.name
-          };*/
-        } else {
-            console.log("password not found");
-            /*return res
-            .status(400)
-            .json({ passwordincorrect: "Password incorrect" });*/
-        }
-      });
-    /*const signedUpUser = new user({
+            };*/
+            } else {
+                console.log("password not found");
+                return response
+                    .status(400)
+                    .json({ passwordIncorrect: "Password incorrect" });
+            }
+        });
+        /*const signedUpUser = new user({
         email:email,
         password:password
     })
@@ -84,7 +82,7 @@ router.post('/signin', async (req, res) =>{
     .catch(error =>{
         res.json(error)
     })*/
-})
-})
+    });
+});
 
 module.exports = router;

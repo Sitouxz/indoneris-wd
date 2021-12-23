@@ -38,12 +38,6 @@ export default function Class() {
                                 <p className="text-50 m-0">
                                     Count more, fun more.
                                 </p>
-                                <p className="card-text">
-                                    This is a wider card with supporting text
-                                    below as a natural lead-in to additional
-                                    content. This content is a little bit
-                                    longer.
-                                </p>
                             </div>
                         </div>
                         <div className="col-12 col-md-3 flex-grow-1 px-2 meeting">
@@ -59,7 +53,6 @@ export default function Class() {
                                 </a>
                             </div>
                             <Meeting order="1" />
-                            <Meeting order="2" />
                         </div>
                     </div>
                 </div>

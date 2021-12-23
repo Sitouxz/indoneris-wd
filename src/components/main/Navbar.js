@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
     return (
         <section
@@ -21,7 +23,11 @@ export default function Navbar() {
                 <button className="btn3d btn-blue ">
                     <i className="bi bi-journal-bookmark-fill me-1"></i>1
                 </button>
-                <button className="btn3d btn-red">Filters</button>
+                <Link to="/assignment">
+                    <button className="btn3d btn-red">
+                        View all assignment
+                    </button>
+                </Link>
             </div>
             <div>
                 <form
