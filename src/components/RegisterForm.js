@@ -139,7 +139,6 @@ class RegisterForm extends Component {
                         value={this.state.email}
                         required
                     />
-                    <div className="error" id="password2">{this.state.errors.email}{this.state.errors.alreadyRegist}</div>
                 </div>
                 <div className="mb-3"> 
                     <label htmlFor="phoneNumber" className="form-label">
@@ -153,7 +152,6 @@ class RegisterForm extends Component {
                         onChange={this.changePhone}
                         value={this.state.phone}
                     />
-                    <div className="error" id="password2">{this.state.errors.phone}</div>
                 </div>
                 <div className="mb-5"> 
                     <label htmlFor="password" className="form-label">
@@ -170,10 +168,8 @@ class RegisterForm extends Component {
                     />
                     {/*<div 
                     className={classnames("valid-feedback", {"invalid-feedback": errors.password})}>{errors.password}
-                    </div>*/}
-                    {/**/}
-                    <div className="error" id="password2">{this.state.errors.password}</div>
-                    {/* <div className="valid-feedback">Looks good!</div>
+                    </div>
+                    <div className="valid-feedback">Looks good!</div>
                     <div className="invalid-feedback">
                         Password cannot be empty
                     </div> */}
@@ -189,12 +185,16 @@ class RegisterForm extends Component {
                         value={this.state.password2}
                         required
                     />
-                    <div className="error" id="password2">{this.state.errors.password2}</div>
+                    
                     {/* <div className="valid-feedback">Looks good!</div>
                     <div className="invalid-feedback">
                         Password cannot be empty
                     </div> */}
                 </div>
+                    <div className="error" id="error">{this.state.errors.password}</div>
+                    <div className="error" id="error">{this.state.errors.password2}</div>
+                    <div className="error" id="error">{this.state.errors.email}{this.state.errors.alreadyRegist}</div>
+                    <div className="error" id="error">{this.state.errors.phone}</div>
                 {/* <Link to="/classes"> */}
                     <button type="submit" className="btn3d btn-blue w-100 mb-3" value="Submit">
                         Submit

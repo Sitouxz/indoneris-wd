@@ -4,6 +4,7 @@ const user = require('../../models/User')
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken");
 
+
 const validateRegisterInput = require('../../Validation/register')
 const validateLoginInput  = require('../../Validation/login')
 
@@ -13,7 +14,7 @@ router.post('/signup', async (req, res) =>{
     // Check validation
     if (!isValid) {
         //console.log(errors)
-        return res.json(errors);
+        return res.status(400).json(errors);
     }
 
     const saltPassword = await bcrypt.genSalt(10)
@@ -43,7 +44,7 @@ router.post('/signup', async (req, res) =>{
             //[#direct] ke classes
       } else {
           console.log("Email already registered!");
-          return res.json({ alreadyRegist: "Email already registered!" });
+          return res.status(400).json({ alreadyRegist: "Email already registered!" });
       }  
       });
 
@@ -55,7 +56,7 @@ router.post('/signin', async (req, res) =>{
     const { errors, isValid } = validateLoginInput(req.body);
     if (!isValid) {
         //console.log(errors)
-        return res.json(errors);
+        return res.status(400).json(errors);
     }
 
     let email = req.body.email
@@ -65,7 +66,7 @@ router.post('/signin', async (req, res) =>{
         console.log(user);
         if (!user) {
             console.log("email not found");
-            return res.json({ emailnotfound: "Email not found" });
+            return res.status(400).json({ emailnotfound: "Email not found" });
         } else {
             console.log("email found");
         }
@@ -75,16 +76,28 @@ router.post('/signin', async (req, res) =>{
                 console.log("password found");
 
                 //DIRECT AKANG KE CLASSES [#direct]
-                return res.json({ passwordCorrect: "Password correct" });
-                /* User matched
-            Create JWT Payload
-            const payload = {
-            id: user.id,
-            name: user.name
-            };*/
+                //return res.json({ passwordCorrect: "Password correct" });
+                const payload = {
+                  id: user.id,
+                  name: user.name
+                };
+                jwt.sign(
+                  payload,
+                  process.env.secretOrKey,
+                  {
+                    expiresIn: 3600 // 1 year in seconds
+                  },
+                  (err, token) => {
+                    res.json({
+                      success: true,
+                      token: "Bearer " + token
+                    });
+                  }
+                );
             } else {
                 console.log("password not found");
                 return res
+                    .status(400)
                     .json({ passwordIncorrect: "Password incorrect" });
             }
         });

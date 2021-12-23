@@ -2,6 +2,10 @@ import { Link, Navigate } from "react-router-dom";
 import React, { Component } from "react";
 import axios from "axios";
 
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../actions/authActions";
+
 class LoginForm extends Component {
     constructor() {
         super();
@@ -15,6 +19,18 @@ class LoginForm extends Component {
         this.changePassword = this.changePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+          this.props.history.push("/dashboard"); // push user to dashboard when they login
+        }
+    if (nextProps.errors) {
+          this.setState({
+            errors: nextProps.errors
+          });
+        }
+      }
+
     changeEmail(event) {
         this.setState({
             email: event.target.value,
@@ -33,8 +49,8 @@ class LoginForm extends Component {
             email: this.state.email,
             password: this.state.password,
         };
-
-        axios
+        this.props.loginUser(login);
+        /*axios
             .post("http://localhost:4000/app/signin", login)
             .then((res) => {
                 console.log(res.data);
@@ -42,7 +58,7 @@ class LoginForm extends Component {
                     errors:res.data,
                     redirect: true
                 });
-            });
+            });*/
         console.log("userEnter");
         /*this.setState({
             email: "",
@@ -108,4 +124,16 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+LoginForm.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+  });
+  export default connect(
+    mapStateToProps,
+    { loginUser }
+  )(LoginForm);
