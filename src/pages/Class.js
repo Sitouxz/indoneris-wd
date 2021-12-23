@@ -35,7 +35,7 @@ export default function Class() {
                                     Mathematics
                                 </h5>
                                 <p className="text-50 m-0">Ms. Liora Smith</p>
-                                <p className="card-text">
+                                <p className="text-50 m-0">
                                     Count more, fun more.
                                 </p>
                             </div>
@@ -53,7 +53,6 @@ export default function Class() {
                                 </a>
                             </div>
                             <Meeting order="1" />
-                            {/* <Meeting order="2" /> */}
                         </div>
                     </div>
                 </div>
@@ -73,10 +72,7 @@ export default function Class() {
                             text-light
                             py-3
                         ">
-                            <h1 className="text-center">
-                                <i className="bi bi-journal-bookmark-fill fs-1 me-3"></i>
-                                3
-                            </h1>
+                            <i className="bi bi-journal-bookmark-fill fs-7"></i>
                             <h4>Assignment</h4>
                         </div>
                         <div
@@ -96,33 +92,6 @@ export default function Class() {
                         </div>
                     </div>
                     <div className="col-12 col-lg-10">
-                        <form
-                            className="
-                                bg-white
-                                border border-2 border-secondary
-                                d-flex
-                                justify-content-between
-                                align-items-center
-                                p-2
-                                rounded-10
-                                mb-3
-                            ">
-                            <div class="input-group my-auto me-2">
-                                <span
-                                    class="input-group-text bg-transparent d-none d-md-block"
-                                    id="PostInput">
-                                    Create Post
-                                </span>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Exercise 1..."
-                                    aria-label="Post"
-                                    aria-describedby="PostInput"
-                                />
-                            </div>
-                            <button className="btn btn-blue px-5">Done</button>
-                        </form>
                         <Post />
                         <Post />
                         <Post />

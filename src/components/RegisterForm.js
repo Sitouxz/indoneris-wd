@@ -60,23 +60,20 @@ class RegisterForm extends Component {
         axios
             .post("http://localhost:4000/app/signup", registered)
             .then((response) => console.log(response.data));
-
-        this.setState({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            password: "",
-        });
+        console.log(registered);
+        /*this.setState({
+            firstName:'',
+            lastName:'',
+            email:'',
+            phone:'',
+            password:''
+        })*/
     }
     render() {
         return (
             <div className="text-primary">
                 <h1 className="mb-5 fs-3">Sign Up</h1>
-                <form
-                    action="#"
-                    className="needs-validation"
-                    onSubmit={this.onSubmit}>
+                <form className="needs-validation" onSubmit={this.onSubmit}>
                     <div className="row">
                         <div className="mb-3 col-6">
                             <label htmlFor="firstName" className="form-label">
@@ -157,6 +154,22 @@ class RegisterForm extends Component {
                             placeholder="*********"
                             onChange={this.changePassword}
                             value={this.state.password}
+                            required
+                        />
+                        <div className="valid-feedback">Looks good!</div>
+                        <div className="invalid-feedback">
+                            Password cannot be empty
+                        </div>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="retypePassword" className="form-label">
+                            Re-type Password
+                        </label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="retypePassword"
+                            placeholder="*********"
                             required
                         />
                         <div className="valid-feedback">Looks good!</div>

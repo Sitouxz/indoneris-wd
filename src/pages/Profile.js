@@ -71,30 +71,6 @@ export default class Profile extends Component {
                                 Following <span className="fw-normal">21</span>
                             </button>
                         </div>
-                        {/* <div className="dropdown">
-                            <button
-                                className="btn dropdown-toggle"
-                                type="button"
-                                id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Recent Class
-                            </button>
-                            <ul
-                                className="dropdown-menu"
-                                aria-labelledby="dropdownMenuButton1">
-                                <li>
-                                    <a className="dropdown-item" href="...">
-                                        Newest Class
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="...">
-                                        Oldest Class
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> */}
                     </div>
                 </section>
                 {this.state.class ? <ProfileClass /> : null}
