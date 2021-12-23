@@ -23,7 +23,6 @@ class RegisterForm extends Component {
         this.changePassword2 = this.changePassword2.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
     }
-
     componentDidUpdate(nextProps) {
         if (nextProps.errors) {
           this.setState({
