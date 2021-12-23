@@ -139,7 +139,7 @@ class RegisterForm extends Component {
                         value={this.state.email}
                         required
                     />
-                    <div className="error" id="password2">{this.state.errors.email}</div>
+                    <div className="error" id="password2">{this.state.errors.email}{this.state.errors.alreadyRegist}</div>
                 </div>
                 <div className="mb-3"> 
                     <label htmlFor="phoneNumber" className="form-label">

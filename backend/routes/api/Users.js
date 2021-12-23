@@ -23,20 +23,30 @@ router.post('/signup', async (req, res) =>{
     let lastName = req.body.lastName
     let email = req.body.email
     let phone = req.body.phone
-    const signedUpUser = new user({
-        firstName:firstName,
-        lastName:lastName,
-        email:email,
-        phone:phone,
-        password:securePassord
-    })
-    signedUpUser.save()
-    .then(data =>{
-        res.json(data)
-    })
-    .catch(error =>{
-        res.json(error)
-    })
+
+    user.findOne({ email }).then((user) => {
+      if (!user) {
+        const signedUpUser = new user({
+                firstName:firstName,
+                lastName:lastName,
+                email:email,
+                phone:phone,
+                password:securePassord
+            })
+            signedUpUser.save()
+            .then(data =>{
+                res.json(data)
+            })
+            .catch(error =>{
+                res.json(error)
+            })
+      } else {
+          console.log("Email already registered!");
+          return res.json({ alreadyRegist: "Email already registered!" });
+      }  
+      });
+
+    
 })
 
 router.post('/signin', async (req, res) =>{
