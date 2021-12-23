@@ -52,10 +52,10 @@ router.post("/signin", async (request, response) => {
                 return response.json({ passwordCorrect: "Password correct" });
                 /* User matched
             Create JWT Payload
-          const payload = {
+            const payload = {
             id: user.id,
             name: user.name
-          };*/
+            };*/
             } else {
                 console.log("password not found");
                 return response
