@@ -6,11 +6,9 @@ import Classes from "./pages/Classes";
 import Class from "./pages/Class";
 import Profile from "./pages/Profile";
 import Assignment from "./pages/Assignment";
-import store from './flux/store';
 
 export default function App() {
     return (
-        <Provider store={store}>
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -20,6 +18,5 @@ export default function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/assignment" element={<Assignment />} />
         </Routes>
-    </Provider>
     );
 }
