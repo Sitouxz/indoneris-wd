@@ -161,22 +161,6 @@ class RegisterForm extends Component {
                             Password cannot be empty
                         </div>
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="retypePassword" className="form-label">
-                            Re-type Password
-                        </label>
-                        <input
-                            type="password"
-                            className="form-control"
-                            id="retypePassword"
-                            placeholder="*********"
-                            required
-                        />
-                        <div className="valid-feedback">Looks good!</div>
-                        <div className="invalid-feedback">
-                            Password cannot be empty
-                        </div>
-                    </div>
                     <div className="mb-5">
                         <label htmlFor="retype-password" className="form-label">
                             Re-type Password
