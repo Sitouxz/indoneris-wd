@@ -66,7 +66,10 @@ class RegisterForm extends Component {
             password2: this.state.password2,
         };
         axios
-            .post("http://localhost:4000/app/signup", registered)
+            .post(
+                "http://fervent-kilby-2a6af4.netlify.app:4000/app/signup",
+                registered
+            )
             .then((res) => {
                 console.log(res);
                 if (res.data.logged) {
