@@ -1,6 +1,6 @@
 import { Link, Navigate } from "react-router-dom";
 import React, { Component } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -48,15 +48,18 @@ class LoginForm extends Component {
     }
 
     onSubmit(event) {
+        
         event.preventDefault();
-
-        const login = {
+        const registered = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
             email: this.state.email,
+            phone: this.state.phone,
             password: this.state.password,
+            password2: this.state.password2,
         };
-        this.props.loginUser(login);
-        /*axios
-            .post("http://localhost:4000/app/signin", login)
+        axios
+            .post("http://localhost:4000/app/signin", registered)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
@@ -64,19 +67,19 @@ class LoginForm extends Component {
                     redirect: true
                 });
             });
-        console.log("userEnter");
-        /*this.setState({
-            email: "",
-            password: "",
-        });*/
+        
+        
+        
+        
     }
     render() {
-        const { redirect } = this.state;
-
+        let redirect = this.state.redirect;
         if (redirect) {
+            console.log('asdasda')
             return <Navigate to="/classes" />;
+        }else{
+            console.log(this.state.redirect)
         }
-
         return (
             <div className="text-primary">
                 <h1 className="mb-5 fs-3">Sign In</h1>

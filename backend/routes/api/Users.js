@@ -63,7 +63,6 @@ router.post("/signin", async (req, res) => {
     let password = req.body.password;
 
     User.findOne({ email }).then((user) => {
-        console.log(user);
         if (!user) {
             console.log("email not found");
             return res.json({ emailnotfound: "Email not found" });
@@ -74,26 +73,7 @@ router.post("/signin", async (req, res) => {
         bcrypt.compare(password, user.password).then((isMatch) => {
             if (isMatch) {
                 console.log("password found");
-
-                //DIRECT AKANG KE CLASSES [#direct]
-                //return res.json({ passwordCorrect: "Password correct" });
-                const payload = {
-                    id: user.id,
-                    name: user.name,
-                };
-                jwt.sign(
-                    payload,
-                    process.env.secretOrKey,
-                    {
-                        expiresIn: 3600, // 1 year in seconds
-                    },
-                    (err, token) => {
-                        res.json({
-                            success: true,
-                            token: "Bearer " + token,
-                        });
-                    }
-                );
+                return res.json({ redirect: true });
             } else {
                 console.log("password not found");
                 return res.json({ passwordIncorrect: "Password incorrect" });
