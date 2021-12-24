@@ -94,7 +94,35 @@ export default function Class() {
                         </div>
                     </div>
                     <div className="col-12 col-lg-10">
-                        <Post />
+                        <form
+                            className="
+                                bg-white
+                                border border-2 border-secondary
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                p-2
+                                rounded-10
+                                mb-3
+                            ">
+                            <div className="input-group my-auto me-2">
+                                <span
+                                    className="input-group-text bg-transparent d-none d-md-block"
+                                    id="PostInput">
+                                    Create Post
+                                </span>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Exercise 1..."
+                                    aria-label="Post"
+                                    aria-describedby="PostInput"
+                                />
+                            </div>
+                            <button className="btn btn-blue px-5">
+                                Create
+                            </button>
+                        </form>
                         <Post />
                         <Post />
                         <Post />

@@ -1,83 +1,85 @@
 {
-  "name": "indoneris-wd",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "aria-query": "^5.0.0",
-    "axios": "^0.24.0",
-    "bcrypt": "^5.0.1",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.1",
-    "bootstrap": "^5.1.3",
-    "bootstrap-datepicker": "^1.9.0",
-    "bootstrap-icons": "^1.7.2",
-    "cache-base": "^4.0.2",
-    "classnames": "^2.3.1",
-    "concurrently": "^6.5.1",
-    "core-js-compat": "^3.20.0",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.2",
-    "fastq": "^1.13.0",
-    "font-awesome": "^4.7.0",
-    "is-empty": "^1.2.0",
-    "jquery": "^3.6.0",
-    "jsesc": "^3.0.2",
-    "jsonwebtoken": "^8.5.1",
-    "jwt-decode": "^3.1.2",
-    "mongodb": "^4.2.2",
-    "mongoose": "^6.1.2",
-    "negotiator": "^0.6.2",
-    "nodemon": "^2.0.15",
-    "passport": "^0.5.2",
-    "passport-jwt": "^4.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "react-router-dom": "^6.0.0-beta.8",
-    "react-script": "^2.0.5",
-    "react-scripts": "^4.0.3",
-    "redux": "^4.1.2",
-    "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.4.1",
-    "regenerator-transform": "^0.14.5",
-    "regexpu-core": "^4.8.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "run-parallel": "^1.2.0",
-    "to-fast-properties": "^4.0.0",
-    "validator": "^13.7.0",
-    "web-vitals": "^1.1.2",
-    "workbox-build": "^6.4.2"
-  },
-  "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1"
-  }
+    "name": "indoneris-wd",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.16.1",
+        "@testing-library/react": "^11.2.7",
+        "@testing-library/user-event": "^12.8.3",
+        "aria-query": "^5.0.0",
+        "axios": "^0.24.0",
+        "bcrypt": "^5.0.1",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.1",
+        "bootstrap": "^5.1.3",
+        "bootstrap-datepicker": "^1.9.0",
+        "bootstrap-icons": "^1.7.2",
+        "cache-base": "^4.0.2",
+        "classnames": "^2.3.1",
+        "concurrently": "^6.5.1",
+        "core-js-compat": "^3.20.0",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.2",
+        "fastq": "^1.13.0",
+        "font-awesome": "^4.7.0",
+        "is-empty": "^1.2.0",
+        "jquery": "^3.6.0",
+        "jsesc": "^3.0.2",
+        "jsonwebtoken": "^8.5.1",
+        "jwt-decode": "^3.1.2",
+        "mongodb": "^4.2.2",
+        "mongoose": "^6.1.2",
+        "negotiator": "^0.6.2",
+        "nodemon": "^2.0.15",
+        "passport": "^0.5.2",
+        "passport-jwt": "^4.0.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-redux": "^7.2.6",
+        "react-router-dom": "^6.0.0-beta.8",
+        "react-script": "^2.0.5",
+        "react-scripts": "^4.0.3",
+        "redux": "^4.1.2",
+        "redux-devtools-extension": "^2.13.9",
+        "redux-thunk": "^2.4.1",
+        "regenerator-transform": "^0.14.5",
+        "regexpu-core": "^4.8.0",
+        "rollup-plugin-babel": "^4.4.0",
+        "run-parallel": "^1.2.0",
+        "to-fast-properties": "^4.0.0",
+        "validator": "^13.7.0",
+        "web-vitals": "^1.1.2",
+        "workbox-build": "^6.4.2"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "server": "cd backend && nodemon server --ignore client",
+        "client": "npm start --prefix",
+        "client-install": "npm install --prefix client",
+        "dev": "concurrently \"npm run server\" \"npm run client\" ",
+        "postbuild": "npm install && npm run dev"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "eslint-plugin-jsx-a11y": "^6.5.1"
+    }
 }
