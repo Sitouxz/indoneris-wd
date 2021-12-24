@@ -164,13 +164,13 @@ class RegisterForm extends Component {
                             value={this.state.phone}
                         />
                     </div>
-                    <div className="mb-5">
+                    <div className="mb-3">
                         <label htmlFor="password" className="form-label">
                             Password
                         </label>
                         <input
                             type="password"
-                            className="form-control"
+                            className="form-control mb-3"
                             id="password"
                             placeholder="*********"
                             onChange={this.changePassword}
@@ -185,7 +185,7 @@ class RegisterForm extends Component {
                         Password cannot be empty
                     </div> */}
                         <label htmlFor="password2" className="form-label">
-                            Password
+                            Re-type Password
                         </label>
                         <input
                             type="password"
