@@ -53,10 +53,13 @@
         "workbox-build": "^6.4.2"
     },
     "scripts": {
-        "start": "concurrently \"react-scripts --openssl-legacy-provider start\" \"cd backend && nodemon server\"",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "start": "react-scripts --openssl-legacy-provider start",
+        "server": "cd backend && nodemon server --ignore client",
+        "client": "npm start --prefix",
+        "client-install": "npm install --prefix client",
+        "dev": "concurrently \"npm run server\" \"npm run client\" ",
+        "postbuild": "npm install && npm run dev",
+        "do-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix && npm run build --prefix client"
     },
     "eslintConfig": {
         "extends": [
