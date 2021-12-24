@@ -11,22 +11,21 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 
-
 class App extends Component {
     render() {
-      return (
-        <Provider store={store}>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/classes" element={<Classes />} />
-                <Route path="/class" element={<Class />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/assignment" element={<Assignment />} />
-            </Routes>
-        </Provider>
-      );
+        return (
+            <Provider store={store}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/classes" element={<Classes />} />
+                    <Route path="/class" element={<Class />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/assignment" element={<Assignment />} />
+                </Routes>
+            </Provider>
+        );
     }
-  }
-  export default App;
+}
+export default App;

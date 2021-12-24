@@ -1,6 +1,6 @@
 import { Link, Navigate } from "react-router-dom";
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -13,7 +13,7 @@ class LoginForm extends Component {
             email: "",
             password: "",
             errors: {},
-            redirect: false
+            redirect: false,
         };
         this.changeEmail = this.changeEmail.bind(this);
         this.changePassword = this.changePassword.bind(this);
@@ -22,14 +22,19 @@ class LoginForm extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.auth.isAuthenticated) {
-          this.props.history.push("/dashboard"); // push user to dashboard when they login
+            console.log("Is Authenticated");
+            // this.props.history.push("/classes"); // push user to dashboard when they login
+            this.setState({
+                redirect: true,
+            });
         }
-    if (nextProps.errors) {
-          this.setState({
-            errors: nextProps.errors
-          });
+        if (nextProps.errors) {
+            console.log("Not Authenticated");
+            this.setState({
+                errors: nextProps.errors,
+            });
         }
-      }
+    }
 
     changeEmail(event) {
         this.setState({
@@ -58,7 +63,7 @@ class LoginForm extends Component {
                     errors:res.data,
                     redirect: true
                 });
-            });*/
+            });
         console.log("userEnter");
         /*this.setState({
             email: "",
@@ -66,6 +71,11 @@ class LoginForm extends Component {
         });*/
     }
     render() {
+        const { redirect } = this.state;
+
+        if (redirect) {
+            return <Navigate to="/classes" />;
+        }
 
         return (
             <div className="text-primary">
@@ -89,7 +99,9 @@ class LoginForm extends Component {
                             value={this.state.email}
                             required
                         />
-                        <div className="error" id="password">{this.state.errors.emailnotfound}</div>
+                        <div className="error" id="password">
+                            {this.state.errors.emailnotfound}
+                        </div>
                     </div>
                     {/* password */}
                     <div className="mb-5">
@@ -105,7 +117,9 @@ class LoginForm extends Component {
                             value={this.state.password}
                             required
                         />
-                        <div className="error" id="password">{this.state.errors.passwordIncorrect}</div>
+                        <div className="error" id="password">
+                            {this.state.errors.passwordIncorrect}
+                        </div>
                     </div>
                     {/* <Link to="/classes"> */}
                     <button type="submit" className="btn3d btn-blue w-100 mb-3">
@@ -127,13 +141,10 @@ class LoginForm extends Component {
 LoginForm.propTypes = {
     loginUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
-  };
-  const mapStateToProps = state => ({
+    errors: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
     auth: state.auth,
-    errors: state.errors
-  });
-  export default connect(
-    mapStateToProps,
-    { loginUser }
-  )(LoginForm);
+    errors: state.errors,
+});
+export default connect(mapStateToProps, { loginUser })(LoginForm);

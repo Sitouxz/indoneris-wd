@@ -14,7 +14,7 @@ export default function Class() {
                 <img src={bg7} className="bg-right me-5 behind" alt="" />
                 <img src={bg8} className="bg-left ms-5 behind" alt="" />
             </div>
-            <section className="container">
+            <section className="container rounded-15">
                 <div className="card mb-3 rounded-15">
                     <div className="row g-0 bg-primary rounded-15 text-light">
                         <div className="col-md-2">
@@ -31,10 +31,12 @@ export default function Class() {
                                 <p className="text-50">
                                     #1 <span>16 June 2022</span>
                                 </p>
-                                <h5 className="card-title fw-bold m-0">
+                                <h5 className="card-title fs-1 fw-bold m-0">
                                     Mathematics
                                 </h5>
-                                <p className="text-50 m-0">Ms. Liora Smith</p>
+                                <p className="text-50 fs-2 m-0">
+                                    Ms. Liora Smith
+                                </p>
                                 <p className="text-50 m-0">
                                     Count more, fun more.
                                 </p>

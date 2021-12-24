@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/header-logo.svg";
 
 export default function Header() {
     return (
@@ -8,7 +9,7 @@ export default function Header() {
                 aria-label="Fourth navbar example">
                 <div className="container-fluid">
                     <Link className="navbar-brand fw-bold fs-4" to="/classes">
-                        Logo
+                        <img src={logo} height="32px" alt="" />
                     </Link>
                     <button
                         className="navbar-toggler"

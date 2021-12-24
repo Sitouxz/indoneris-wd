@@ -10,9 +10,7 @@ export default function Meeting(props) {
                 rounded-3
                 mb-2
             ">
-            <div className="d-flex justify-content-between">
-                <h5 className="fw-bold">On going meeting</h5>
-            </div>
+            <h5 className="fw-bold fs-6">On going meeting</h5>
             <div id={`meeting${props.order}`}>
                 <h6>25+ Students joined</h6>
                 <h5>June 23, 2022 4:30 AM</h5>
