@@ -56,7 +56,7 @@
         "start": "react-scripts --openssl-legacy-provider start",
         "server": "cd backend && nodemon server --ignore client",
         "client": "npm start --prefix",
-        "build": "react-scripts --openssl-legacy-provider build",
+        "build": "react-scripts build",
         "client-install": "npm install --prefix client",
         "dev": "concurrently \"npm run server\" \"npm run client\" ",
         "postbuild": "npm install && npm run dev",
