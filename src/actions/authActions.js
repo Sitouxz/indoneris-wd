@@ -5,7 +5,7 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 export const registerUser = (userData, history) => (dispatch) => {
     axios
         .post(
-            "http://young-wildwood-72286.herokuapp.com/app/register",
+            "https://young-wildwood-72286.herokuapp.com/app/register",
             userData
         )
         .then((res) => history.push("/classes")) // re-direct to login on successful register
@@ -19,7 +19,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
     axios.post(
-        "http://young-wildwood-72286.herokuapp.com/app/signin",
+        "https://young-wildwood-72286.herokuapp.com/app/signin",
         userData
     );
 };

@@ -67,7 +67,7 @@ class RegisterForm extends Component {
         };
         axios
             .post(
-                "http://young-wildwood-72286.herokuapp.com/app/signup",
+                "https://young-wildwood-72286.herokuapp.com/app/signup",
                 registered
             )
             .then((res) => {

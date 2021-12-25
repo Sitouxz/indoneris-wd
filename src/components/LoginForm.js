@@ -59,7 +59,7 @@ class LoginForm extends Component {
         };
         axios
             .post(
-                "http://young-wildwood-72286.herokuapp.com/app/signin",
+                "https://young-wildwood-72286.herokuapp.com/app/signin",
                 registered
             )
             .then((res) => {
