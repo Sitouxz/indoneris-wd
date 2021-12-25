@@ -1,4 +1,4 @@
-POST http://fervent-kilby-2a6af4.netlify.app:4000/app/signup
+POST http://young-wildwood-72286.herokuapp.com/app/signup
 Content-Type: application/json
 
 {

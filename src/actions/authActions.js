@@ -5,7 +5,7 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 export const registerUser = (userData, history) => (dispatch) => {
     axios
         .post(
-            "http://fervent-kilby-2a6af4.netlify.app:4000/app/register",
+            "http://young-wildwood-72286.herokuapp.com/app/register",
             userData
         )
         .then((res) => history.push("/classes")) // re-direct to login on successful register
@@ -19,7 +19,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
     axios.post(
-        "http://fervent-kilby-2a6af4.netlify.app:4000/app/signin",
+        "http://young-wildwood-72286.herokuapp.com/app/signin",
         userData
     );
 };

@@ -67,7 +67,7 @@ class RegisterForm extends Component {
         };
         axios
             .post(
-                "http://fervent-kilby-2a6af4.netlify.app:4000/app/signup",
+                "http://young-wildwood-72286.herokuapp.com/app/signup",
                 registered
             )
             .then((res) => {

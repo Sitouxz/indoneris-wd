@@ -48,7 +48,6 @@ class LoginForm extends Component {
     }
 
     onSubmit(event) {
-        
         event.preventDefault();
         const registered = {
             firstName: this.state.firstName,
@@ -59,26 +58,25 @@ class LoginForm extends Component {
             password2: this.state.password2,
         };
         axios
-            .post("http://localhost:4000/app/signin", registered)
+            .post(
+                "http://young-wildwood-72286.herokuapp.com/app/signin",
+                registered
+            )
             .then((res) => {
                 console.log(res.data);
                 this.setState({
-                    errors:res.data,
-                    redirect: true
+                    errors: res.data,
+                    redirect: true,
                 });
             });
-        
-        
-        
-        
     }
     render() {
         let redirect = this.state.redirect;
         if (redirect) {
-            console.log('asdasda')
+            console.log("asdasda");
             return <Navigate to="/classes" />;
-        }else{
-            console.log(this.state.redirect)
+        } else {
+            console.log(this.state.redirect);
         }
         return (
             <div className="text-primary">
